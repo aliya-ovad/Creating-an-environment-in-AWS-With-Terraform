@@ -1,0 +1,6 @@
+.gitignore.swp
+.terraform.lock.hcl
+.terraform/
+.vpc.tf.swp
+terraform.tfstate
+terraform.tfstate.backup
