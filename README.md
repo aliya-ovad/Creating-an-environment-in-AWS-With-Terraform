@@ -1,5 +1,7 @@
 ##  Creating an environment in AWS With Terraform
 
+**Note** : The project uses paid resources
+
 * [General info](#general-info)
 * [Environment](#environment)
 * [Setup](#setup)
@@ -9,29 +11,21 @@ A simple project in terraform that creates a safe work environment.
 	
 ## Environment
 
-To access the calculator through the browser:
-1. Click the link [calculator](https://msf42klrm1.execute-api.eu-central-1.amazonaws.com/calculator/GET)
+I created a vpc
 
-2. If you want to send data to the calculator We need to send two numbers First number and Second number
-   
-   You need to replace the <Value_for_First_number> and <Value_for_Second_number> with your numbers
+which has 4 subnet    2 of them are private     2 of them are public
 
-   https://msf42klrm1.execute-api.eu-central-1.amazonaws.com/calculator/GET
-   
-   ?firstnumber=<Value_for_First_number>&secondnumber=<Value_for_Second_number
-   
- #### For example :  
- 
- If I want to send the numbers 17 and 5 The link will look like this
+and I put them in 2 availability zone
 
- https://msf42klrm1.execute-api.eu-central-1.amazonaws.com/calculator/GET?firstnumber=17&secondnumber=5
+Each availability zone contains 2 subnet 1 privet 1 public
+
+And for all subnets that are public we created a routing table with internet gateway that they will have access to the world
+
+And for the subnets that are privet we created a routing table with net gateway associated with him Elastic IP address 
+
+And with this we go to the routing table of public subnet And from there out into the world
    
-#### The result will be:  
- ```
- 
- "firstnumber : 17   secondnumber : 5     17 plus 5 equals: 22"
- 
- ```
+
 	
 ## Setup
 
