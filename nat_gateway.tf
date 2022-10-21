@@ -11,4 +11,3 @@ resource "aws_eip" "elastic-ip" {
     Name = "elastic-ip"
   }
 }
-
