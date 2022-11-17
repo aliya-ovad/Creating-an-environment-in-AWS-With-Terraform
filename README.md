@@ -46,10 +46,3 @@ $ terraform apply
 ```
 $ terraform destroy
 ```
-
-
-
-
-
-
-
